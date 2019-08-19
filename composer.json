@@ -1,0 +1,33 @@
+{
+    "name": "jobcloud/jobcloud-http-mock-server",
+    "description": "A minimal http mock server.",
+    "keywords": ["http", "mock", "api"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dominik Zogg",
+            "email": "dominik.zogg@gmail.com"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "react/event-loop": ">=0.4",
+        "react/http": "^0.8.4",
+        "symfony/process": "^3.4|^4.2"
+    },
+    "require-dev": {
+        "phpstan/phpstan": "^0.11.15",
+        "phpunit/phpunit": "^7.5.14|^8.3.4"
+    },
+    "autoload": {
+        "psr-4": { "Jobcloud\\HttpMockServer\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Jobcloud\\Tests\\HttpMockServer\\": "tests/" }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0-dev"
+        }
+    }
+}

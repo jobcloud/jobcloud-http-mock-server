@@ -1,0 +1,46 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+namespace App;
+
+use Jobcloud\HttpMockServer\Response;
+use React\EventLoop\Factory;
+use React\Http\Response as ReactResponse;
+use React\Http\Server as HttpServer;
+use React\Socket\Server as SocketServer;
+
+require __DIR__.'/../vendor/autoload.php';
+
+$responses = [];
+foreach ((array) json_decode($argv[2], true) as $responseData) {
+    $responses[] = Response::createFromArray($responseData);
+}
+
+if ([] === $responses) {
+    throw new \RuntimeException('Missing responses');
+}
+
+$loop = Factory::create();
+
+$socket = new SocketServer(sprintf('0.0.0.0:%s', (int) $argv[1]), $loop);
+
+$server = new HttpServer(function () use ($loop, &$responses) {
+    /** @var Response $response */
+    $response = array_shift($responses);
+
+    if ([] === $responses) {
+        $loop->futureTick(function () use ($loop): void {
+            $loop->stop();
+        });
+    }
+
+    return new ReactResponse($response->getStatus(), $response->getHeaders(), $response->getBody());
+});
+
+$server->listen($socket);
+
+fwrite(STDOUT, "http server mock: started\n");
+
+$loop->run();

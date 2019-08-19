@@ -1,0 +1,72 @@
+version: 2.1
+jobs:
+  php73:
+    docker:
+      - image: php:7.3-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+  php73-minimal:
+    docker:
+      - image: php:7.3-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n --prefer-lowest
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+  php72:
+    docker:
+      - image: php:7.2-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+  php72-minimal:
+    docker:
+      - image: php:7.2-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n --prefer-lowest
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+  php71:
+    docker:
+      - image: php:7.1-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+  php71-minimal:
+    docker:
+      - image: php:7.1-cli
+    steps:
+      - checkout
+      - run: apt-get update && apt-get install -y git
+      - run: curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer
+      - run: composer update -n --prefer-lowest
+      - run: phpdbg -qrr vendor/bin/phpunit
+      - run: vendor/bin/phpstan analyse
+workflows:
+  version: 2
+  build_and_test:
+    jobs:
+      - php73
+      - php73-minimal
+      - php72
+      - php72-minimal
+      - php71
+      - php71-minimal

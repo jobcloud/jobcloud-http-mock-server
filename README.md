@@ -1,5 +1,6 @@
 # jobcloud-http-mock-server
 
+[![CircleCI](https://circleci.com/gh/jobcloud/jobcloud-http-mock-server/tree/master.svg?style=svg)](https://circleci.com/gh/jobcloud/jobcloud-http-mock-server/tree/master)
 [![Total Downloads](https://poser.pugx.org/jobcloud/jobcloud-http-mock-server/downloads.png)](https://packagist.org/packages/jobcloud/jobcloud-http-mock-server)
 [![Monthly Downloads](https://poser.pugx.org/jobcloud/jobcloud-http-mock-server/d/monthly)](https://packagist.org/packages/jobcloud/jobcloud-http-mock-server)
 [![Latest Stable Version](https://poser.pugx.org/jobcloud/jobcloud-http-mock-server/v/stable.png)](https://packagist.org/packages/jobcloud/jobcloud-http-mock-server)

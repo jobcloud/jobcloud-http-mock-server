@@ -19,7 +19,7 @@ final class HttpMockServer
         $process = new Process([
             realpath(__DIR__.'/../bin/httpMockServer'),
             $port,
-            json_encode($responses)
+            json_encode($responses),
         ]);
 
         $process->start();

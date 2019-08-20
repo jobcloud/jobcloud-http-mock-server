@@ -10,6 +10,7 @@ jobs:
       - run: composer update -n
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
   php73-minimal:
     docker:
       - image: php:7.3-cli
@@ -20,6 +21,7 @@ jobs:
       - run: composer update -n --prefer-lowest
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
   php72:
     docker:
       - image: php:7.2-cli
@@ -30,6 +32,7 @@ jobs:
       - run: composer update -n
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
   php72-minimal:
     docker:
       - image: php:7.2-cli
@@ -40,6 +43,7 @@ jobs:
       - run: composer update -n --prefer-lowest
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
   php71:
     docker:
       - image: php:7.1-cli
@@ -50,6 +54,7 @@ jobs:
       - run: composer update -n
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
   php71-minimal:
     docker:
       - image: php:7.1-cli
@@ -60,6 +65,7 @@ jobs:
       - run: composer update -n --prefer-lowest
       - run: phpdbg -qrr vendor/bin/phpunit
       - run: vendor/bin/phpstan analyse
+      - run: vendor/bin/php-cs-fixer fix --dry-run --stop-on-violation
 workflows:
   version: 2
   build_and_test:

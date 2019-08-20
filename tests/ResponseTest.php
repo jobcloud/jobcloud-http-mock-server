@@ -87,7 +87,7 @@ final class ResponseTest extends TestCase
         self::assertSame([
             'status' => 422,
             'headers' => ['Content-Type' => 'application/error+json'],
-            'body' => '{"error":"There is an errro"}'
+            'body' => '{"error":"There is an errro"}',
         ], $response->jsonSerialize());
     }
 

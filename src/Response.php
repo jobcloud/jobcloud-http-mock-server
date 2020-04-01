@@ -25,19 +25,11 @@ final class Response implements \JsonSerializable
     {
     }
 
-    /**
-     * @return self
-     */
     public static function create(): self
     {
         return new self();
     }
 
-    /**
-     * @param int $status
-     *
-     * @return self
-     */
     public function withStatus(int $status): self
     {
         $clone = clone $this;
@@ -46,12 +38,6 @@ final class Response implements \JsonSerializable
         return $clone;
     }
 
-    /**
-     * @param string $name
-     * @param string $value
-     *
-     * @return self
-     */
     public function withHeader(string $name, string $value): self
     {
         $clone = clone $this;
@@ -60,11 +46,6 @@ final class Response implements \JsonSerializable
         return $clone;
     }
 
-    /**
-     * @param string $body
-     *
-     * @return self
-     */
     public function withBody(string $body): self
     {
         $clone = clone $this;
@@ -74,7 +55,7 @@ final class Response implements \JsonSerializable
     }
 
     /**
-     * @return array
+     * @return array<string, mixed>
      */
     public function jsonSerialize(): array
     {
@@ -86,9 +67,7 @@ final class Response implements \JsonSerializable
     }
 
     /**
-     * @param array $data
-     *
-     * @return self
+     * @param array<string, mixed> $data
      */
     public static function createFromArray(array $data): self
     {
@@ -100,9 +79,6 @@ final class Response implements \JsonSerializable
         return $self;
     }
 
-    /**
-     * @return int
-     */
     public function getStatus(): int
     {
         return $this->status;
@@ -116,9 +92,6 @@ final class Response implements \JsonSerializable
         return $this->headers;
     }
 
-    /**
-     * @return string
-     */
     public function getBody(): string
     {
         return $this->body;

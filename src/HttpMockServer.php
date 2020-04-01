@@ -9,10 +9,7 @@ use Symfony\Component\Process\Process;
 final class HttpMockServer
 {
     /**
-     * @param int             $port
      * @param array<Response> $responses
-     *
-     * @return void
      */
     public function run(int $port, array $responses): void
     {

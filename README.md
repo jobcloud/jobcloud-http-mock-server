@@ -15,7 +15,7 @@ A minimal http mock server.
  * php: ^7.1
  * react/event-loop: >=0.4,
  * react/http: ^0.8.4,
- * symfony/process: ^3.4|^4.2
+ * symfony/process: ^3.4|^4.2|^5.0
 
 ## Installation
 

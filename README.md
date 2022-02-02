@@ -12,7 +12,7 @@ A minimal http mock server.
 
 ## Requirements
 
- * php: ^7.1
+ * php: ^7.1|^8.0
  * react/event-loop: >=0.4,
  * react/http: ^0.8.4,
  * symfony/process: ^3.4|^4.2

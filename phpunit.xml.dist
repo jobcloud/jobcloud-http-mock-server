@@ -8,20 +8,20 @@
          executionOrder="random"
          processIsolation="false"
          stopOnFailure="false"
-        >
-    <testsuites>
-        <testsuite name="jobcloud http mock server">
-            <directory>./tests</directory>
-        </testsuite>
-    </testsuites>
-    <filter>
-        <whitelist>
-            <directory>./src</directory>
-        </whitelist>
-    </filter>
-    <logging>
-        <log type="coverage-text" target="php://stdout" showOnlySummary="true"/>
-        <log type="coverage-html" target="build/logs/coverage"/>
-        <log type="junit" target="build/logs/coverage.xml"/>
-    </logging>
+>
+  <testsuites>
+    <testsuite name="jobcloud http mock server">
+      <directory>./tests</directory>
+    </testsuite>
+  </testsuites>
+  <filter>
+    <whitelist>
+      <directory>./src</directory>
+    </whitelist>
+  </filter>
+  <logging>
+    <log type="coverage-text" target="php://stdout" showOnlySummary="true"/>
+    <log type="coverage-html" target="build/logs/coverage"/>
+    <log type="junit" target="build/logs/coverage.xml"/>
+  </logging>
 </phpunit>

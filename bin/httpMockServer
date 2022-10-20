@@ -6,10 +6,10 @@ declare(strict_types=1);
 namespace App;
 
 use Jobcloud\HttpMockServer\Response;
-use React\EventLoop\Factory;
-use React\Http\Response as ReactResponse;
-use React\Http\Server as HttpServer;
-use React\Socket\Server as SocketServer;
+use React\EventLoop\Loop;
+use React\Http\Message\Response as ReactResponse;
+use React\Http\HttpServer;
+use React\Socket\SocketServer;
 
 if (file_exists(__DIR__ . '/../../../autoload.php')) {
     require __DIR__ . '/../../../autoload.php';
@@ -26,9 +26,9 @@ if ([] === $responses) {
     throw new \RuntimeException('Missing responses');
 }
 
-$loop = Factory::create();
+$loop = Loop::get();
 
-$socket = new SocketServer(sprintf('0.0.0.0:%s', (int) $argv[1]), $loop);
+$socket = new SocketServer(sprintf('0.0.0.0:%s', (int) $argv[1]), [], $loop);
 
 $server = new HttpServer(function () use ($loop, &$responses) {
     /** @var Response $response */

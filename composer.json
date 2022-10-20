@@ -11,6 +11,7 @@
     ],
     "require": {
         "php": "^7.1|^8.0",
+        "ext-json": "*",
         "react/event-loop": ">=0.4",
         "react/http": "^1.8.0",
         "symfony/process": "^3.4|^4.2"

@@ -114,13 +114,23 @@ workflows:
   version: 2
   build_and_test:
     jobs:
-      - php80
-      - php80-minimal
-      - php74
-      - php74-minimal
-      - php73
-      - php73-minimal
-      - php72
-      - php72-minimal
-      - php71
-      - php71-minimal
+      - php80:
+          context: dockerhub-credentials
+      - php80-minimal:
+          context: dockerhub-credentials
+      - php74:
+          context: dockerhub-credentials
+      - php74-minimal:
+          context: dockerhub-credentials
+      - php73:
+          context: dockerhub-credentials
+      - php73-minimal:
+          context: dockerhub-credentials
+      - php72:
+          context: dockerhub-credentials
+      - php72-minimal:
+          context: dockerhub-credentials
+      - php71:
+          context: dockerhub-credentials
+      - php71-minimal:
+          context: dockerhub-credentials
